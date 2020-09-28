@@ -23,10 +23,12 @@ Array.prototype.forEach.call(tableRow, function (el) {
             SummeradeUtgifter = Math.round(SummeradeUtgifter);
 
             SetupAndFixBeloppDate(beloppDate);
+            var result = beloppValue + SummeradeUtgifter;
 
             SpendingArray.push("DATUM: " + beloppDateYear + "-" + beloppDateMonth +
-                " UTGIFTER: " + SummeradeUtgifter.toString().replace("-", "")
-                + " LÖN: " + beloppValue);
+                ", UTGIFTER: " + SummeradeUtgifter.toString().replace("-", "")
+                + ", LÖN: " + beloppValue
+                + ", VINST/FÖRLUST: " + result);
             SummeradeUtgifter = 0;
             Current_td_list[3].style.backgroundColor = "lightgreen";
 
