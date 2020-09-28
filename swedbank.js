@@ -20,7 +20,19 @@ Array.prototype.forEach.call(tableRow, function (el) {
 
         if (beloppValue > 0 && beloppName == "LÖN") {
             SummeradeUtgifter = Math.round(SummeradeUtgifter);
-            SpendingArray.push(beloppDate.substring(0, 7) + ": "  + SummeradeUtgifter.toString().replace("-", "") + " - LÖN: " + beloppValue);
+			var beloppDateYear = parseInt(beloppDate.substring(0, 4));
+			var beloppDateMonth = parseInt(beloppDate.substring(5, 7));
+			beloppDateMonth+=1;
+			if (beloppDateMonth > 12){
+				beloppDateYear+=1
+			}
+			if(beloppDateMonth < 10){
+				beloppDateMonth = "0" + beloppDateMonth.toString();
+			}
+			
+            SpendingArray.push("DATUM: " + beloppDateYear + "-" + beloppDateMonth + 
+			" UTGIFTER: "  + SummeradeUtgifter.toString().replace("-", "") 
+			+ " LÖN: " + beloppValue);
             SummeradeUtgifter = 0;
             Current_td_list[3].style.backgroundColor = "lightgreen";
 
