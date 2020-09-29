@@ -4,6 +4,7 @@ var SummeradeUtgifter = 0;
 var SpendingArray = [];
 var beloppDateYear = 0;
 var beloppDateMonth = 0;
+console.clear();
 
 Array.prototype.forEach.call(tableRow, function (el) {
     Current_td_list = el.getElementsByTagName("td");
@@ -57,6 +58,6 @@ function SetupAndFixBeloppDate(beloppDate) {
     }
 }
 
-Array.prototype.forEach.call(SpendingArray, function (Spending) {
+Array.prototype.forEach.call(SpendingArray, function (Spending) {	
     console.log(Spending);
 });
